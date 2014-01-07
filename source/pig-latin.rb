@@ -24,17 +24,22 @@ def pig_latin(word)
   letters = word.split("")
   if letters[0].include?("a"||"e"||"i"||"o"||"u")
   else
-    number = /[aeiou]/ =~ word
-    p number
-    word =letters.push(letters.shift(number)).join + "ay"
+    /(?<first>[^aeiou]*)(?<second>[aeiou].*)/ =~ word
+    word = second + first + "ay"
   end
-
   word
-
 end
-
 
 
 p pig_latin("darcey") == "arceyday"
 p pig_latin("string") == "ingstray"
+p pig_latin("david") == "avidday"
 p pig_latin("apple") == "apple"
+
+def pig_sentence(sentence)
+  words = sentence.split(" ")
+  words.map! {|x| pig_latin(x) }
+  p words.join(" ")
+end
+
+p pig_sentence("we like to ski") == "eway ikelay otay iskay"
