@@ -22,7 +22,7 @@ PRINT the converted sentence.
 DISPLAY the number of words converted.
 =end
 
-
+=begin
 def pig_latin
   user_input = gets.chomp
   user_input = user_input.split("")
@@ -51,5 +51,28 @@ end
 
 
 #do this ? if condition is met : else do this thing
+
+pig_latin
+=end
+
+
+
+def pig_latin
+  user_input = gets.chomp
+  user_input = user_input.split("")
+  vowels = ["a","e","i","o","u","y"]
+
+  if vowels.include?(user_input[0])
+    p user_input.join
+
+    else
+      until vowels.include?(user_input[0])
+        user_input << user_input.shift
+      end
+      user_input << "ay"
+      p user_input.join
+    end
+  end
+
 
 pig_latin
