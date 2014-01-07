@@ -7,11 +7,11 @@
 # PRINT the pig-latin-ified word.
 
 
-def convert_word_to_pig_latin(word)
-  #input = gets.chomp
-  return word if word.match(/^[aeiouy]/i)
+def convert_word_to_pig_latin
+  word = gets.chomp
+  return puts word if word.match(/^[aeiouy]/i)
   consonants = word.match(/^[^aeiouy]+/i).to_s
-  return "#{word.gsub!(consonants, "")}#{consonants}ay"
+  puts "#{word.gsub!(consonants, "")}#{consonants}ay"
 end
 
-p convert_word_to_pig_latin('throne')
+convert_word_to_pig_latin
