@@ -63,16 +63,17 @@ def pig_latin
   vowels = ["a","e","i","o","u","y"]
 
   if vowels.include?(user_input[0])
-    p user_input.join
 
-    else
-      until vowels.include?(user_input[0])
-        user_input << user_input.shift
-      end
-      user_input << "ay"
-      p user_input.join
+
+  else
+    until vowels.include?(user_input[0])
+      user_input << user_input.shift
     end
+    user_input << "ay"
+
   end
+  p user_input.join
+end
 
 
 pig_latin
