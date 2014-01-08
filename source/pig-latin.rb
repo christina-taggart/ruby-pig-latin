@@ -22,45 +22,12 @@ PRINT the converted sentence.
 DISPLAY the number of words converted.
 =end
 
-=begin
-def pig_latin
-  user_input = gets.chomp
+
+
+def pig_latin(user_input)
   user_input = user_input.split("")
-  vowels = ["a","e","i","o","u","y"]
+  vowels = ["a","e","i","o","u"]
 
-  if vowels.include?(user_input[0])
-    p user_input.join
-
-  else
-
-    user_input.each do |user_letter|
-      unless vowels.include?(user_letter)
-        letter = user_input.shift
-        p letter
-        user_input << letter
-        p user_input
-      else
-        user_input << "ay"
-        p user_input.join
-        return
-      end
-    end
-  end
-end
-
-
-
-#do this ? if condition is met : else do this thing
-
-pig_latin
-=end
-
-
-
-def pig_latin
-  user_input = gets.chomp
-  user_input = user_input.split("")
-  vowels = ["a","e","i","o","u","y"]
 
   if vowels.include?(user_input[0])
 
@@ -68,12 +35,28 @@ def pig_latin
   else
     until vowels.include?(user_input[0])
       user_input << user_input.shift
+
     end
     user_input << "ay"
 
   end
-  p user_input.join
+
+  return user_input.join
 end
 
+def pig_latin_sentence
+  puts "please enter the setence you want translated"
+  sentence = gets.chomp.split(" ")
+  finished_sentence = ""
+  count = 0
+  sentence.each do |word|
+    finished_sentence << pig_latin(word) + " "
+    if word != pig_latin(word)
+      count += 1
+    end
+  end
+  p count
+p finished_sentence
+end
 
-pig_latin
+pig_latin_sentence
