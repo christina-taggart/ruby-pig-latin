@@ -1,7 +1,7 @@
 # Your code here
 def pig_latin(english)
   english.downcase!
-  return english if english == "" ||    "aeiouy".include?(english[0])
+  return english if english == "" || "aeiouy".include?(english[0])
   /^(?<first_consonants>[^aeiouy\d\W_]+)(?<rest_of_word>.*)/ =~ english
   rest_of_word + first_consonants + "ay"
 end
